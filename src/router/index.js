@@ -6,6 +6,7 @@ const Home = () => import('views/home/Home.vue')
 const Category = () => import('views/category/Category.vue')
 const Profile = () => import('views/profile/Profile.vue')
 const Cart = () => import('views/cart/Cart.vue')
+const Detail = () => import('views/detail/Detail.vue')
 
 Vue.use(VueRouter)
 
@@ -13,23 +14,43 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/home'
+    redirect: '/home',
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+    // 设置是否显示tabbar
+    meta: {
+      showTab : true
+    }
   },
   {
     path: '/category',
-    component: Category
+    component: Category,
+    meta: {
+      showTab : true
+    }
   },
   {
     path: '/cart',
-    component: Cart
+    component: Cart,
+    meta: {
+      showTab : true
+    }
   },
   {
     path: '/profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      showTab : true
+    }
+  },
+  {
+    path: '/detail/:iid',
+    component: Detail,
+    meta: {
+      showTab : false
+    }
   }
 ]
 const router = new VueRouter({
